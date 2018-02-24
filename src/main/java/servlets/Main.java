@@ -53,6 +53,44 @@ public class Main extends HttpServlet
             valute.map.get("JPY").get("Name"), 
             valute.map.get("RUB").get("Name")
         };
+        
+        String[] CharCode = {
+            valute.map.get("AUD").get("CharCode"), 
+            valute.map.get("AZN").get("CharCode"), 
+            valute.map.get("GBP").get("CharCode"), 
+            valute.map.get("AMD").get("CharCode"), 
+            valute.map.get("BYN").get("CharCode"), 
+            valute.map.get("BGN").get("CharCode"), 
+            valute.map.get("BRL").get("CharCode"), 
+            valute.map.get("HUF").get("CharCode"), 
+            valute.map.get("HKD").get("CharCode"), 
+            valute.map.get("DKK").get("CharCode"), 
+            valute.map.get("USD").get("CharCode"), 
+            valute.map.get("EUR").get("CharCode"), 
+            valute.map.get("INR").get("CharCode"), 
+            valute.map.get("KZT").get("CharCode"), 
+            valute.map.get("CAD").get("CharCode"), 
+            valute.map.get("KGS").get("CharCode"), 
+            valute.map.get("CNY").get("CharCode"), 
+            valute.map.get("MDL").get("CharCode"), 
+            valute.map.get("NOK").get("CharCode"), 
+            valute.map.get("PLN").get("CharCode"), 
+            valute.map.get("RON").get("CharCode"), 
+            valute.map.get("XDR").get("CharCode"), 
+            valute.map.get("SGD").get("CharCode"), 
+            valute.map.get("TJS").get("CharCode"), 
+            valute.map.get("TRY").get("CharCode"), 
+            valute.map.get("TMT").get("CharCode"), 
+            valute.map.get("UZS").get("CharCode"), 
+            valute.map.get("UAH").get("CharCode"), 
+            valute.map.get("CZK").get("CharCode"), 
+            valute.map.get("SEK").get("CharCode"), 
+            valute.map.get("CHF").get("CharCode"), 
+            valute.map.get("ZAR").get("CharCode"), 
+            valute.map.get("KRW").get("CharCode"), 
+            valute.map.get("JPY").get("CharCode"), 
+            valute.map.get("RUB").get("CharCode")
+        };
          
         resp.setContentType("text/html;charset=utf-8");
         PrintWriter pw = resp.getWriter();
@@ -67,8 +105,10 @@ public class Main extends HttpServlet
             pw.println("<body>");
                 pw.println("<h1>Валютный калькулятор</h1>");
                 pw.println("<h3>Курсы валют</h3>");
-                pw.println("<p>EUR - Евро " + valute.map.get("EUR").get("Value") + "</p>");
-                pw.println("<p>USD - Доллар " + valute.map.get("USD").get("Value") + "</p>");
+                pw.println("<p>" + valute.map.get("EUR").get("CharCode") 
+                        + " - Евро " + valute.map.get("EUR").get("Value") + "</p>");
+                pw.println("<p>" + valute.map.get("USD").get("CharCode") + 
+                        " - Доллар " + valute.map.get("USD").get("Value") + "</p>");
                 pw.println("<form action=\"Calculate\">");
                     pw.println("<p>Размер валюты</p>");
                     pw.println("<input type=\"text\" size=\"40\" "
@@ -79,7 +119,8 @@ public class Main extends HttpServlet
                     //выпадающий список
                     for(int i = 0; i < Name.length; i++)
                     {
-                        pw.println("<option>" + Name[i] + "</option>");
+                        pw.println("<option>"+ CharCode[i] + " - " 
+                                + Name[i] + "</option>");
                     }
                     
                     pw.println("</select>");
@@ -89,7 +130,8 @@ public class Main extends HttpServlet
                     //выпадающий список
                     for(int i = 0; i < Name.length; i++)
                     {
-                        pw.println("<option>" + Name[i] + "</option>");
+                        pw.println("<option>"+ CharCode[i] + " - " 
+                                + Name[i] + "</option>");
                     }
                     
                     pw.println("</select>");
